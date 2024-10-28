@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -87,6 +88,7 @@ export default function RootLayout({
         className={`${playfair.variable} ${montserrat.variable} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
