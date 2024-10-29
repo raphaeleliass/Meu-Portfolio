@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -87,8 +88,15 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${montserrat.variable} antialiased`}
       >
-        {children}
-        <Analytics />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          disableTransitionOnChange
+          enableSystem
+        >
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

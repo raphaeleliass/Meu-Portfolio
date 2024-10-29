@@ -18,7 +18,7 @@ export default function Hero() {
   });
 
   return (
-    <section className="container z-50 flex flex-col justify-center rounded-b-custom bg-secondary pt-8 shadow-lg ring-1 ring-background">
+    <section className="container z-50 flex flex-col justify-center rounded-b-custom bg-secondary pt-8 shadow-lg ring-1 ring-background dark:bg-background">
       <Navbar />
 
       <div className="mx-auto my-28 flex w-full max-w-sm flex-col items-center justify-center gap-4 opacity-100 md:max-w-2xl">
