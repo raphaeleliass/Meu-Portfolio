@@ -58,7 +58,7 @@ export default function Navbar() {
         </div>
 
         {/* EMAIL E DOWNLOAD DE CURRICULO NO MOBILE */}
-        <div className="flex flex-row gap-2">
+        <div className="flex flex-row gap-2 md:hidden">
           <NavigationMenu className="md:hidden">
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -110,6 +110,8 @@ export default function Navbar() {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
+
+          <ModeToggle />
         </div>
 
         <div className="flex w-auto flex-row gap-2">
