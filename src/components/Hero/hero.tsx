@@ -33,7 +33,8 @@ export default function Hero() {
         </h2>
 
         <Button
-          className="mt-4 p-6 opacity-100"
+        variant={'outline'}
+          className="mt-4 p-6 opacity-100 shadow-md"
           aria-label="botão que leva até os projetos mais recentes de Raphael"
         >
           <a

@@ -13,7 +13,7 @@ export default function Footer() {
         </h2>
 
         <div className="flex w-full max-w-xs flex-col items-center justify-center gap-4 md:max-w-min md:flex-row">
-          <Button className="w-full" variant={"secondary"}>
+          <Button className="w-full" variant={"outline"}>
             <Mail />
             <a
               href="mailto:raphaeleliass@outlook.com"

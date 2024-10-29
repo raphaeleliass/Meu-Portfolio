@@ -2,10 +2,10 @@ import { Button } from "../ui/button";
 
 export default function SocialLinks() {
   return (
-    <div className="flex flex-row items-center justify-center text-xs">
+    <div className="flex flex-row items-center justify-center text-[11px] md:text-xs">
       <Button
         variant={"link"}
-        className="text-xs"
+        className="text-[11px] md:text-xs"
         aria-label="botão que redireciona para o site linkedin"
       >
         <a
@@ -19,7 +19,7 @@ export default function SocialLinks() {
       /
       <Button
         variant={"link"}
-        className="text-xs"
+        className="text-[11px] md:text-xs"
         aria-label="botão que redireciona para o site github"
       >
         <a
@@ -33,7 +33,7 @@ export default function SocialLinks() {
       /
       <Button
         variant={"link"}
-        className="text-xs"
+        className="text-[11px] md:text-xs"
         aria-label="botão que redireciona para o site instagram"
       >
         <a

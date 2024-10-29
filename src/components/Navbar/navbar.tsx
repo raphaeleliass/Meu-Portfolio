@@ -20,7 +20,7 @@ export default function Navbar() {
     setCopy(true);
     setTimeout(() => {
       setCopy(false);
-    }, 2000);
+    }, 3000);
   }
 
   return (
@@ -33,13 +33,14 @@ export default function Navbar() {
         <div className="hidden flex-row items-center gap-4 md:flex">
           <Button
             variant={"secondary"}
-            className="relative text-xs"
+            className="relative text-xs disabled:opacity-100"
             onClick={copyToClipboard}
             aria-label="botão para copiar o email"
+            disabled={isCopy ? true : false}
           >
             raphaeleliass@outlook.com <Copy />
             <div
-              className={`absolute -bottom-4 right-2 rounded-full bg-green-500 px-2 py-px transition-all after:absolute after:bottom-full after:right-3 after:border-4 after:border-transparent after:border-b-green-500 ${isCopy ? "opacity-100" : "opacity-0"}`}
+              className={`absolute -bottom-4 right-2 rounded-full bg-green-500 px-2 py-px text-xs font-semibold text-white shadow-lg transition-all after:absolute after:bottom-full after:right-3 after:border-4 after:border-transparent after:border-b-green-500 ${isCopy ? "opacity-100" : "opacity-0"}`}
             >
               copiado
             </div>
@@ -54,57 +55,66 @@ export default function Navbar() {
         </div>
 
         {/* EMAIL E DOWNLOAD DE CURRICULO NO MOBILE */}
-        <NavigationMenu className="md:hidden">
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger aria-label="botão para abrir menu">
-                <MenuIcon className="size-5" />
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="space-y-2 px-4 py-6">
-                  <li className="text-xs">
-                    <Button
-                      variant={"secondary"}
-                      className="relative text-xs"
-                      onClick={copyToClipboard}
-                      aria-label="botão para copiar o email"
-                    >
-                      raphaeleliass@outlook.com <Copy />
-                      <div
-                        className={`absolute -bottom-3 right-1 rounded-full bg-green-500 px-2 py-px transition-all after:absolute after:bottom-full after:right-4 after:border-4 after:border-transparent after:border-b-green-500 ${isCopy ? "opacity-100" : "opacity-0"}`}
+        <div className="flex flex-row gap-2">
+          <NavigationMenu className="md:hidden">
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  aria-label="botão para abrir menu"
+                  className="bg-secondary shadow-md dark:bg-background"
+                >
+                  <MenuIcon className="size-5" />
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="space-y-2 px-4 py-6">
+                    <li className="text-xs">
+                      <Button
+                        variant={"secondary"}
+                        className="relative text-xs disabled:opacity-100"
+                        onClick={copyToClipboard}
+                        aria-label="botão para copiar o email"
+                        disabled={isCopy ? true : false}
                       >
-                        copiado
-                      </div>
-                    </Button>
-                  </li>
-                  <li>
-                    <Separator />
-                  </li>
-                  <li className="flex items-center justify-center">
-                    <Button
-                      variant={"secondary"}
-                      className="w-full"
-                      aria-label="botão para baixar curriculo"
-                    >
-                      <Download />
-                      <a
-                        href="/curriculo.pdf"
-                        target="_blank"
-                        rel="noreferrer noopener"
+                        raphaeleliass@outlook.com <Copy />
+                        <div
+                          className={`absolute -bottom-3 right-1 rounded-full bg-green-500 px-2 py-px text-xs font-semibold text-white shadow-lg transition-all after:absolute after:bottom-full after:right-4 after:border-4 after:border-transparent after:border-b-green-500 ${isCopy ? "opacity-100" : "opacity-0"}`}
+                        >
+                          copiado
+                        </div>
+                      </Button>
+                    </li>
+                    <li>
+                      <Separator />
+                    </li>
+                    <li className="flex items-center justify-center">
+                      <Button
+                        variant={"secondary"}
+                        className="w-full"
+                        aria-label="botão para baixar curriculo"
                       >
-                        Baixar CV
-                      </a>
-                    </Button>
-                  </li>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+                        <Download />
+                        <a
+                          href="/curriculo.pdf"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          Baixar CV
+                        </a>
+                      </Button>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+          <ModeToggle />
+        </div>
 
         <div className="flex flex-row gap-2">
           <SocialLinks />
-          <ModeToggle />
+          <span className="hidden md:flex">
+            <ModeToggle />
+          </span>
         </div>
       </nav>
     </header>
