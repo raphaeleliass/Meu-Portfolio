@@ -23,7 +23,7 @@ export default function Footer() {
               Email
             </a>
           </Button>
-          <Button className="w-full">
+          <Button className="w-full" variant={"secondary"}>
             <a
               className="h-full w-full"
               href="https://wa.me/5528999763920"
@@ -40,9 +40,7 @@ export default function Footer() {
             © 2024 Todos os direitos reservados.
           </p>
 
-          <span>
-            <SocialLinks />
-          </span>
+          <SocialLinks />
         </span>
       </div>
     </section>

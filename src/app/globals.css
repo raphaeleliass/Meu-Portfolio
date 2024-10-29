@@ -64,6 +64,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-secondary font-Montserrat text-foreground;
+    @apply bg-secondary font-Montserrat text-foreground text-muted-foreground;
   }
 }
