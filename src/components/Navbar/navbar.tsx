@@ -32,7 +32,7 @@ export default function Navbar() {
         {/* EMAIL E DOWNLOAD DE CURRICULO NO DESKTOP */}
         <div className="hidden flex-row items-center gap-4 md:flex">
           <Button
-            variant={"secondary"}
+            variant={"outline"}
             className="relative text-xs disabled:opacity-100"
             onClick={copyToClipboard}
             aria-label="botão para copiar o email"
@@ -46,7 +46,10 @@ export default function Navbar() {
             </div>
           </Button>
 
-          <Button aria-label="botão para baixar currículo">
+          <Button
+            aria-label="botão para baixar currículo"
+            variant={"secondary"}
+          >
             <Download />
             <a href="/curriculo.pdf" target="_blank" rel="noreferrer noopener">
               Baixar CV
