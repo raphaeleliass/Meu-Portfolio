@@ -1,15 +1,13 @@
-import Cards from "@/components/Cards/cards";
-import Footer from "@/components/Footer/footer";
-import Hero from "@/components/Hero/hero";
-import TechsSection from "@/components/TechsSection/techsSection";
+import AboutMe from "@/components/sections/aboutMe/aboutme";
+import Hero from "@/components/sections/hero/hero";
+import Projects from "@/components/sections/projects/projects";
 
 export default function Home() {
   return (
-    <main className="flex min-h-dvh flex-col items-center">
+    <main className="flex flex-col items-center justify-center">
       <Hero />
-      <TechsSection />
-      <Cards />
-      <Footer />
+      <AboutMe />
+      <Projects />
     </main>
   );
 }

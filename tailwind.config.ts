@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        Playfair: "var(--font-playfair)",
+        Inter: "var(--font-inter)",
         Montserrat: "var(--font-montserrat)",
       },
       colors: {

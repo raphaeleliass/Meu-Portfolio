@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Montserrat, Playfair_Display } from "next/font/google";
+import { Montserrat, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import { ThemeProvider } from "@/components/theme-provider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
-  weight: ["400", "600", "700"],
+  weight: ["400", "600", "700", "900"],
   display: "swap",
   fallback: ["sans-serif", "arial"],
 });
 
-const playfair = Playfair_Display({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-playfair",
-  weight: ["400", "600", "700"],
+  variable: "--font-inter",
+  weight: ["400", "600", "700", '900'],
   display: "swap",
   fallback: ["sans-serif", "arial"],
 });
@@ -85,18 +84,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body
-        className={`${playfair.variable} ${montserrat.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          disableTransitionOnChange
-          enableSystem
-        >
-          {children}
-          <Analytics />
-        </ThemeProvider>
+      <body className={`${inter.variable} ${montserrat.variable} antialiased`}>
+        {children}
+        <Analytics />
       </body>
     </html>
   );
