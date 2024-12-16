@@ -49,7 +49,7 @@ export default function AboutMe() {
         stagger: 0.1,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "40% center",
+          start: "20% center",
           end: "40% cemter",
           once: true,
         },
@@ -119,7 +119,7 @@ export default function AboutMe() {
         <h2 className="font-Montserrat text-2xl font-light md:text-3xl">
           About me
         </h2>
-        <p className="mt-4 w-full max-w-sm text-balance indent-4 font-Inter text-muted-foreground md:max-w-lg">
+        <p className="mt-4 w-full max-w-sm text-center font-Inter text-muted-foreground md:max-w-lg">
           Hi, I&apos;m <strong>Raphael</strong>, a{" "}
           <strong>front-end developer</strong>
           passionate about technology and programming. I&apos;m currently
@@ -141,8 +141,6 @@ export default function AboutMe() {
           aiming to become a <strong>full-stack developer</strong>. My long-term
           goal is to build a solid career in tech and eventually explore
           international opportunities.
-          <br />
-          Feel free to explore my projects and <strong>get in touch</strong>!
         </p>
       </div>
     </section>

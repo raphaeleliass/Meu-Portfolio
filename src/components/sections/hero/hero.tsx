@@ -59,7 +59,7 @@ export default function Hero() {
           <Button className="w-full">
             Meet my repositories <ExternalLinkIcon />{" "}
           </Button>
-          <Button className="w-full" variant={"outline"}>
+          <Button className="w-full" variant={"secondary"}>
             Check my projects
           </Button>
         </div>
