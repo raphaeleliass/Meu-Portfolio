@@ -1,6 +1,6 @@
-import AboutMe from "@/components/Sections/AboutMe/aboutMe";
+import AboutMe from "@/components/Sections/aboutMe/aboutme";
 import Footer from "@/components/Sections/Footer/footer";
-import Hero from "@/components/Sections/Hero/hero";
+import Hero from "@/components/Sections/hero/hero";
 import Navbar from "@/components/Sections/Navbar/navbar";
 import Projects from "@/components/Sections/Projects/projects";
 
