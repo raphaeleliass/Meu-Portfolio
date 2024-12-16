@@ -1,4 +1,5 @@
-import AboutMe from "@/components/Sections/AboutMe/aboutMe";
+import AboutMe from "@/components/Sections/AboutMe/aboutme";
+import Contact from "@/components/Sections/Contact/contact";
 import Footer from "@/components/Sections/Footer/footer";
 import Hero from "@/components/Sections/Hero/hero";
 import Navbar from "@/components/Sections/Navbar/navbar";
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <AboutMe />
       <Projects />
+      <Contact />
       <Footer />
     </main>
   );
