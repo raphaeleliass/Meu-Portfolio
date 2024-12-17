@@ -81,11 +81,12 @@ export default function AboutMe() {
     >
       <div className="relative flex items-center justify-center">
         <Image
-          className="z-40 w-44 -translate-y-96 rounded-xl object-cover object-center opacity-0 shadow-lg saturate-0 md:w-56"
-          src={"/profile-pic.jpg"}
+          className="z-40 w-44 -translate-y-96 object-cover object-center rounded-xl opacity-0 shadow-lg saturate-50 md:w-56"
+          src={"https://github.com/raphaeleliass.png"}
           alt="Raphael's profile pic"
           width={100}
           height={200}
+          priority
           ref={pictureRef}
         />
 
