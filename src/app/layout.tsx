@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Montserrat, Inter } from "next/font/google";
+import { Poppins, Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
 const montserrat = Montserrat({
@@ -11,10 +11,10 @@ const montserrat = Montserrat({
   fallback: ["sans-serif", "arial"],
 });
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "600", "700", '900'],
+  variable: "--font-poppins",
+  weight: ["400", "600", "700", "900"],
   display: "swap",
   fallback: ["sans-serif", "arial"],
 });
@@ -84,7 +84,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${inter.variable} ${montserrat.variable} antialiased`}>
+      <body
+        className={`${poppins.variable} ${montserrat.variable} antialiased`}
+      >
         {children}
         <Analytics />
       </body>

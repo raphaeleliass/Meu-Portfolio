@@ -9,8 +9,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        hero_pattern: "url('/hero-moon.png')",
+      },
       fontFamily: {
-        Inter: "var(--font-inter)",
+        Poppins: "var(--font-poppins)",
         Montserrat: "var(--font-montserrat)",
       },
       colors: {
@@ -48,6 +51,11 @@ const config: Config = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         chart: {
+          "1": "hsl(var(--chart-1))",
+          "2": "hsl(var(--chart-2))",
+          "3": "hsl(var(--chart-3))",
+          "4": "hsl(var(--chart-4))",
+          "5": "hsl(var(--chart-5))",
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",
           "3": "hsl(var(--chart-3))",
