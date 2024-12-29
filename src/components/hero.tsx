@@ -26,9 +26,7 @@ export default function Hero() {
   return (
     <section className="container relative z-40 flex items-center justify-center">
       <span className="absolute z-50 px-4 py-32 backdrop-blur-2xl">
-        <p className="text-sm text-muted-foreground">
-          Hey! I&apos;m Raphael 🤠
-        </p>
+        <p className="text-sm text-muted-foreground">Hey! I&apos;m Raphael!</p>
         <h2 className="font-Poppins text-7xl font-bold text-zinc-300 drop-shadow-xl md:text-6xl">
           Web Developer, <br />
           Data Analyst, <br />

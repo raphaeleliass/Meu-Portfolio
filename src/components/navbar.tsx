@@ -15,7 +15,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <header className="container fixed left-0 right-0 top-0 z-50 flex w-full items-end justify-end bg-background py-4 pr-4 md:static">
+    <header className="container fixed left-0 right-0 top-0 z-50 flex w-full items-end justify-end bg-background py-6 pr-4 md:static">
       <nav role="navigation">
         <Dialog>
           <DialogTrigger asChild>
