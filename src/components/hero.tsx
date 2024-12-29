@@ -1,10 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Button } from "./ui/button";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowDown, ArrowRight, ExternalLink } from "lucide-react";
 
 export default function Hero() {
+  const arrowDownRef = useRef(null);
+  const [ArrowTimeOut, setArrowTimeOut] = useState<boolean>(false);
   const [IntervalAnimation, setIntervalAnimation] = useState<boolean>(false);
 
   useEffect(() => {
@@ -16,10 +18,24 @@ export default function Hero() {
       setIntervalAnimation((prev) => !prev);
     }, 1500);
 
+    const timeOut = setTimeout(() => {
+      setArrowTimeOut(true);
+    }, 3000);
+
+    function arrowHide() {
+      if (window.scrollY > 0) {
+        setArrowTimeOut(false);
+      }
+    }
+
+    window.addEventListener("scroll", arrowHide);
+
     return () => {
       gsap.killTweensOf(".relative");
       gsap.killTweensOf(".rounded-full");
       clearInterval(interval);
+      clearTimeout(timeOut);
+      arrowHide();
     };
   }, []);
 
@@ -42,6 +58,10 @@ export default function Hero() {
             <ArrowRight />
           </Button>
         </div>
+        <ArrowDown
+          className={`absolute bottom-0 right-52 animate-bounce transition-all duration-1000 md:right-60 ${ArrowTimeOut ? "opacity-100" : "opacity-0"}`}
+          ref={arrowDownRef}
+        />
       </span>
       <div
         className={`z-10 rounded-full bg-zinc-800 duration-1000 ease-linear ${IntervalAnimation ? "size-[20rem]" : "size-[16rem]"}`}
