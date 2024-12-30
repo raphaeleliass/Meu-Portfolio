@@ -9,9 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        hero_pattern: "url('/hero-moon.png')",
-      },
       fontFamily: {
         Poppins: "var(--font-poppins)",
         Montserrat: "var(--font-montserrat)",
