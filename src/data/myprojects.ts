@@ -1,4 +1,4 @@
-const myProjects = [
+export const myProjects = [
   {
     title: "Todo App",
     description:
@@ -42,5 +42,3 @@ const myProjects = [
     technologies: ["HTML", "TailwindCSS"],
   },
 ];
-
-export default myProjects;

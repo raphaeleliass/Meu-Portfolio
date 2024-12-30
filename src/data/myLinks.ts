@@ -1,4 +1,4 @@
-const myLinks = [
+export const myLinks = [
   {
     title: "Linkedin",
     url: "https://linkedin.com/in/raphaeleliass",
@@ -24,5 +24,3 @@ const myLinks = [
     url: "mailto:raphaeleliass@outlook.com",
   },
 ];
-
-export default myLinks;
