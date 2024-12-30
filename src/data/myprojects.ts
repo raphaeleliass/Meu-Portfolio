@@ -7,11 +7,11 @@ export const myProjects = [
     siteLink: "https://raphaelelias-todo-app.vercel.app",
     repoLink: "https://github.com/raphaeleliass/todo-app",
     technologies: [
-      "NextJS",
-      "Context API",
-      "Firebase",
-      "TypeScript",
-      "TailwindCSS",
+      { name: "NextJS" },
+      { name: "Context API" },
+      { name: "Firebase" },
+      { name: "TypeScript" },
+      { name: "TailwindCSS" },
     ],
   },
   {
@@ -21,7 +21,11 @@ export const myProjects = [
     imageSrc: "/stream-vibe.png",
     siteLink: "https://raphaelelias-stream-vibe.vercel.app/",
     repoLink: "https://github.com/raphaeleliass/stream-vibe",
-    technologies: ["TailwindCSS", "React", "TypeScript"],
+    technologies: [
+      { name: "TailwindCSS" },
+      { name: "React" },
+      { name: "TypeScript" },
+    ],
   },
   {
     title: "Age Calculator",
@@ -30,7 +34,11 @@ export const myProjects = [
     imageSrc: "/age-calculator.png",
     siteLink: "https://raphaelelias-agecalculator.vercel.app/",
     repoLink: "https://github.com/raphaeleliass/age-calculator",
-    technologies: ["React", "TailwindCSS", "TypeScript"],
+    technologies: [
+      { name: "React" },
+      { name: "TailwindCSS" },
+      { name: "TypeScript" },
+    ],
   },
   {
     title: "Crowdfund Project",
@@ -39,6 +47,9 @@ export const myProjects = [
     imageSrc: "/crowdfund.png",
     siteLink: "https://raphaelelias-crowdfund.vercel.app/",
     repoLink: "https://github.com/raphaeleliass/crowdfund-project",
-    technologies: ["HTML", "TailwindCSS"],
+    technologies: [
+      { name: "HTML" },
+      { name: "TailwindCSS" },
+    ],
   },
 ];
