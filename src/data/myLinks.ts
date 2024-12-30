@@ -15,12 +15,4 @@ export const myLinks = [
     title: "Whatsapp",
     url: "https://wa.me/5528999763920",
   },
-  {
-    title: "Portfólio",
-    url: "https://raphaelelias.tech",
-  },
-  {
-    title: "Email",
-    url: "mailto:raphaeleliass@outlook.com",
-  },
 ];
