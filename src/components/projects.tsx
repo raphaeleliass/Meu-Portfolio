@@ -15,7 +15,7 @@ import { ExternalLink } from "lucide-react";
 
 export default function Projects() {
   return (
-    <section className="">
+    <section id="projects">
       <h2 className="text-3xl font-semibold md:text-4xl">Discover</h2>
 
       <div className="container mt-32 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
