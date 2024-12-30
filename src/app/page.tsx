@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Navbar />
 
-      <main className="flex flex-col items-center">
+      <main className="flex gap-56 flex-col items-center">
         <Hero />
         <AboutMe />
         <Projects />
