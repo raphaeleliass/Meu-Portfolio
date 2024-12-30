@@ -10,7 +10,7 @@ export default function ScrollToTopBtn() {
 
   return (
     <Button
-      className="fixed bottom-4 right-4 rounded-full"
+      className="fixed bottom-4 right-4 z-50 rounded-full"
       variant={"secondary"}
       onClick={scrollToTop}
     >
