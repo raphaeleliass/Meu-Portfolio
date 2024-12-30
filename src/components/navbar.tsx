@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { Button } from "./ui/button";
+
+// ui imports
 import {
   Dialog,
   DialogContent,
@@ -10,13 +10,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
-import WhatsappForm from "./forms/whatsapp-form";
+import { Button } from "./ui/button";
+
+// icon imports
 import { ArrowRight } from "lucide-react";
+
+// form component imports
+import WhatsappForm from "./forms/whatsapp-form";
 
 export default function Navbar() {
   return (
-    <header className="container fixed left-0 right-0 top-0 z-50 flex w-full items-end justify-end bg-background py-6 pr-4 md:static">
-      <nav role="navigation">
+    <header className="container fixed left-0 right-0 top-0 z-50 mx-auto flex w-full items-center justify-center bg-background px-4 py-6 md:static">
+      <nav role="navigation" className="flex w-full flex-row justify-between">
         <Dialog>
           <DialogTrigger asChild>
             <Button variant={"ghost"}>
