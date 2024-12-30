@@ -50,11 +50,17 @@ export default function Hero() {
         </h2>
         <div className="mt-8 flex flex-col gap-4 md:flex-row">
           <Button variant={"secondary"}>
-            <a href="">Meet my repositories</a>
+            <a
+              href="https://github.com/raphaeleliass"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Meet my repositories
+            </a>
             <ExternalLink />
           </Button>
           <Button variant={"ghost"}>
-            <a href="">Discover my projects</a>
+            <a href="#projects">Discover my projects</a>
             <ArrowRight />
           </Button>
         </div>
