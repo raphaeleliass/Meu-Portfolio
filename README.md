@@ -2,7 +2,7 @@
 
 <div align="center" style='margin-top:6rem;'>
 
-# My portfolio
+# Meu portfolio
 
   <br />
   <a href="#about"><strong>Explore the screenshots »</strong></a>
