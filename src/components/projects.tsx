@@ -18,7 +18,7 @@ export default function Projects() {
     <section className="">
       <h2 className="text-3xl font-semibold md:text-4xl">Discover</h2>
 
-      <div className="container mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container mt-32 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {myProjects.map((project) => (
           <Card
             className="flex flex-col justify-between bg-neutral-900"
