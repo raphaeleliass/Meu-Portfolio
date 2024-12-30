@@ -110,11 +110,25 @@ export default function AboutMe() {
 
           <div className="article-items flex flex-row gap-2">
             <Button className="article-items" variant={"outline"}>
-              Visit my Linkedin <ExternalLink />
+              <a
+                href="https://linkedin.com/in/raphaeleliass"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Visit my Linkedin
+              </a>{" "}
+              <ExternalLink />
             </Button>
 
             <Button className="article-items" variant={"secondary"}>
-              Download my CV <Download />
+              <a
+                href="/Raphael-Elias-CV.odt"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Download my CV
+              </a>{" "}
+              <Download />
             </Button>
           </div>
 
