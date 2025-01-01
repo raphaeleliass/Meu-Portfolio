@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins, Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import Providers from "@/components/providers";
+import Providers from "@/components/Providers";
 
 const montserrat = Montserrat({
   subsets: ["latin"],

@@ -1,8 +1,8 @@
-import AboutMe from "@/components/about-me";
-import Footer from "@/components/footer";
-import Hero from "@/components/hero";
-import Navbar from "@/components/navbar";
-import Projects from "@/components/projects";
+import AboutMe from "@/components/About-me";
+import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
+import Projects from "@/components/Projects";
 import ScrollToTopBtn from "@/components/ui/scroll-to-top-btn";
 import React from "react";
 
