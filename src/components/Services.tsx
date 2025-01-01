@@ -8,43 +8,30 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-
-const servicesData = [
-  {
-    title: "Web Development",
-    description: "Building responsive and high-quality websites.",
-    icon: "🌐",
-  },
-  {
-    title: "UI/UX Design",
-    description: "Designing user-friendly interfaces and experiences.",
-    icon: "🎨",
-  },
-  {
-    title: "SEO Optimization",
-    description: "Improving website visibility on search engines.",
-    icon: "🔍",
-  },
-  {
-    title: "Content Creation",
-    description: "Producing engaging content for various platforms.",
-    icon: "✍️",
-  },
-];
+import { servicesData } from "@/data/servicesData";
+import { CodeXmlIcon, PenTool, ThumbsUp, TrendingUp } from "lucide-react";
 
 export default function Services() {
   return (
     <Section className="py-32">
       <SectionTitle>What Can I Do For You?</SectionTitle>
+      <p className="max-w-xs text-center text-sm text-muted-foreground md:max-w-sm">
+        A variety of professional services tailored to meet your needs
+      </p>
 
-      <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-20 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {servicesData.map((service) => (
           <Card
             className="flex w-full max-w-sm flex-col items-center justify-between text-center"
             key={service.title}
           >
             <CardHeader>
-              <span>{service.icon}</span>
+              <span>
+                {service.title === "Web Development" && <CodeXmlIcon />}
+                {service.title === "UI/UX Design" && <PenTool />}
+                {service.title === "SEO Optimization" && <TrendingUp />}
+                {service.title === "Content Creation" && <ThumbsUp />}
+              </span>
             </CardHeader>
 
             <CardContent>
