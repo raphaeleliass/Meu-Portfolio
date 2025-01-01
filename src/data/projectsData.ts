@@ -1,4 +1,4 @@
-export const myProjects = [
+export const projectsData = [
   {
     title: "Todo App",
     description:

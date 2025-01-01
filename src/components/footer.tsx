@@ -1,4 +1,4 @@
-import { myLinks } from "@/data/myLinks";
+import { linksData } from "@/data/linksData";
 import React from "react";
 import {
   SiGithub,
@@ -15,7 +15,7 @@ export default function Footer() {
           Let&apos;s connect!
         </h3>
         <span className="mt-4 flex flex-row gap-2">
-          {myLinks.map((link) => (
+          {linksData.map((link) => (
             <a
               className="p-2"
               role="button"

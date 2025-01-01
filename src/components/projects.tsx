@@ -1,5 +1,5 @@
-import { myProjects } from "@/data/myprojects";
 import React from "react";
+import { projectsData } from "@/data/projectsData";
 import {
   Card,
   CardContent,
@@ -19,14 +19,14 @@ export default function Projects() {
       <h2 className="text-3xl font-semibold md:text-4xl">Discover</h2>
 
       <div className="container mt-32 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {myProjects.map((project) => (
+        {projectsData.map((project) => (
           <Card
             className="flex flex-col justify-between bg-neutral-900"
             key={project.title}
           >
             <CardHeader>
               <Image
-                className="aspect-video w-full object-cover object-top rounded-lg"
+                className="aspect-video w-full rounded-lg object-cover object-top"
                 src={project.imageSrc}
                 alt={project.title}
                 width={100}

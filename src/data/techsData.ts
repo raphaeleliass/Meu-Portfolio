@@ -1,4 +1,4 @@
-export const myTechs = [
+export const techsData = [
   {
     name: "HTML",
     description: "Markup language",

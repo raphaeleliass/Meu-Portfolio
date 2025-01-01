@@ -1,4 +1,4 @@
-export const myLinks = [
+export const linksData = [
   {
     title: "Linkedin",
     url: "https://linkedin.com/in/raphaeleliass",
