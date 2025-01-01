@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins, Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import Providers from "@/components/providers";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
-  weight: ["400", "600", "700", "900"],
+  weight: ["300", "400", "600", "700"],
   display: "swap",
   fallback: ["sans-serif", "arial"],
 });
@@ -14,7 +15,7 @@ const montserrat = Montserrat({
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
-  weight: ["400", "600", "700", "900"],
+  weight: ["300", "400", "600", "700"],
   display: "swap",
   fallback: ["sans-serif", "arial"],
 });
@@ -87,7 +88,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${montserrat.variable} antialiased`}
       >
-        {children}
+        <Providers>{children}</Providers>
         <Analytics />
       </body>
     </html>
