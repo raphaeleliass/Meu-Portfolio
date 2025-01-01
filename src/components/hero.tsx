@@ -1,77 +1,128 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
+import React, { useEffect } from "react";
+import { Section } from "./ui/section";
+import Image from "next/image";
 import { Button } from "./ui/button";
-import { ArrowDown, ArrowRight, ExternalLink } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider } from "./ui/tooltip";
+import { TooltipTrigger } from "@radix-ui/react-tooltip";
+import {
+  SiGithub,
+  SiLinkedin,
+  SiWhatsapp,
+} from "@icons-pack/react-simple-icons";
+import gsap from "gsap";
 
 export default function Hero() {
-  const arrowDownRef = useRef(null);
-  const [ArrowTimeOut, setArrowTimeOut] = useState<boolean>(false);
-  const [IntervalAnimation, setIntervalAnimation] = useState<boolean>(false);
-
   useEffect(() => {
-    gsap.fromTo(".relative", { opacity: 0 }, { opacity: 1, duration: 1 });
-
-    gsap.fromTo(".rounded-full", { opacity: 0 }, { opacity: 1, delay: 1 });
-
-    const interval = setInterval(() => {
-      setIntervalAnimation((prev) => !prev);
-    }, 1500);
-
-    const timeOut = setTimeout(() => {
-      setArrowTimeOut(true);
-    }, 3000);
-
-    function arrowHide() {
-      if (window.scrollY > 0) {
-        setArrowTimeOut(false);
-      }
-    }
-
-    window.addEventListener("scroll", arrowHide);
-
-    return () => {
-      gsap.killTweensOf(".relative");
-      gsap.killTweensOf(".rounded-full");
-      clearInterval(interval);
-      clearTimeout(timeOut);
-      arrowHide();
-    };
+    gsap.fromTo(
+      ".hero-item",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.2,
+      },
+    );
   }, []);
 
   return (
-    <section className="container relative z-40 flex items-center justify-center">
-      <span className="absolute z-50 px-4 py-32 backdrop-blur-2xl">
-        <p className="text-sm text-muted-foreground">Hey! I&apos;m Raphael!</p>
-        <h2 className="font-Poppins text-7xl font-bold text-zinc-300 drop-shadow-xl md:text-6xl">
-          Web Developer, <br />
-          Data Analyst, <br />
-          Creator.
-        </h2>
-        <div className="mt-8 flex flex-col gap-4 md:flex-row">
-          <Button variant={"secondary"}>
-            <a
-              href="https://github.com/raphaeleliass"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Meet my repositories
-            </a>
-            <ExternalLink />
-          </Button>
-          <Button variant={"ghost"}>
-            <a href="#projects">Discover my projects</a>
-            <ArrowRight />
-          </Button>
-        </div>
-        <ArrowDown
-          className={`absolute bottom-0 right-52 animate-bounce transition-all duration-1000 md:right-60 ${ArrowTimeOut ? "opacity-100" : "opacity-0"}`}
-          ref={arrowDownRef}
+    <Section className="hero-item flex-row">
+      <div className="hero-item flex flex-col justify-center md:w-1/2 lg:items-start">
+        <span>
+          <h3 className="hero-item text-sm font-light">
+            Hey, I&apos;m Raphael
+          </h3>
+          <h2 className="hero-item mt-2 font-Poppins text-5xl font-bold md:text-7xl">
+            Web Developer, <br /> Data Analyst, <br />{" "}
+            <strong className="text-muted-foreground">Creator.</strong>
+          </h2>
+        </span>
+
+        <span className="hero-item mt-6">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  className="hero-item rounded-full"
+                  variant={"ghost"}
+                  aria-label="button with linkedin icon"
+                >
+                  <a
+                    href="https://linkedin.com/in/raphaeleliass"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <SiLinkedin />
+                  </a>
+                </Button>
+              </TooltipTrigger>
+
+              <TooltipContent>
+                <p>Linkedin</p>
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  className="hero-item rounded-full"
+                  variant={"ghost"}
+                  aria-label="button with github icon"
+                >
+                  <a
+                    href="https://github.com/raphaeleliass"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <SiGithub />
+                  </a>
+                </Button>
+              </TooltipTrigger>
+
+              <TooltipContent>
+                <p>GitHub</p>
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  className="hero-item rounded-full"
+                  variant={"ghost"}
+                  aria-label="button with whatsapp icon"
+                >
+                  <a
+                    href="https://wa.me/5528999763920"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <SiWhatsapp />
+                  </a>
+                </Button>
+              </TooltipTrigger>
+
+              <TooltipContent>
+                <p>Resume</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </span>
+      </div>
+      <div className="hero-item relative hidden items-center justify-center md:w-1/2 lg:flex">
+        <Image
+          className="z-50 size-96 rounded rounded-br-2xl rounded-tl-2xl drop-shadow-xl saturate-0"
+          src={"https://github.com/raphaeleliass.png"}
+          alt="Raphael's profile picture"
+          width={200}
+          height={200}
         />
-      </span>
-      <div
-        className={`z-10 rounded-full bg-zinc-800 duration-1000 ease-linear ${IntervalAnimation ? "size-[20rem]" : "size-[16rem]"}`}
-      />
-    </section>
+
+        <div className="absolute size-96 -translate-x-6 -translate-y-6 rounded rounded-tl-3xl outline outline-1 outline-muted-foreground" />
+      </div>
+    </Section>
   );
 }
