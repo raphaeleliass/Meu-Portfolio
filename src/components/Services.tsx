@@ -1,5 +1,6 @@
-import React from "react";
-import { Section, SectionTitle } from "./ui/section";
+"use client";
+import React, { useLayoutEffect } from "react";
+import { Section, SectionDescription, SectionTitle } from "./ui/section";
 import {
   Card,
   CardContent,
@@ -10,19 +11,45 @@ import {
 } from "./ui/card";
 import { servicesData } from "@/data/servicesData";
 import { CodeXmlIcon, PenTool, ThumbsUp, TrendingUp } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Services() {
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+      ".services-items",
+      {
+        opacity: 0,
+        y: -12,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.3,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: ".services-items",
+          start: "top 40%",
+          end: "center 60%",
+        },
+      },
+    );
+
+    return () => gsap.killTweensOf(".services-items");
+  }, []);
+
   return (
-    <Section className="py-32">
+    <Section className="services-items">
       <SectionTitle>What Can I Do For You?</SectionTitle>
-      <p className="max-w-xs text-center text-sm text-muted-foreground md:max-w-sm">
+      <SectionDescription>
         A variety of professional services tailored to meet your needs
-      </p>
+      </SectionDescription>
 
       <div className="mt-20 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {servicesData.map((service) => (
           <Card
-            className="flex w-full max-w-sm flex-col items-center justify-between text-center"
+            className="services-items flex w-full max-w-sm flex-col items-center justify-between text-center"
             key={service.title}
           >
             <CardHeader>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { Section } from "./ui/section";
 import Image from "next/image";
 import { Button } from "./ui/button";
@@ -13,7 +13,7 @@ import {
 import gsap from "gsap";
 
 export default function Hero() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.fromTo(
       ".hero-item",
       {
@@ -23,8 +23,8 @@ export default function Hero() {
       {
         opacity: 1,
         y: 0,
-        duration: 0.6,
-        stagger: 0.2,
+        duration: 0.3,
+        stagger: 0.1,
       },
     );
   }, []);
@@ -112,7 +112,7 @@ export default function Hero() {
           </TooltipProvider>
         </span>
       </div>
-      <div className="hero-item relative hidden items-center justify-center md:w-1/2 lg:flex">
+      <div className="hero-item relative hidden items-center justify-end md:w-1/2 lg:flex">
         <Image
           className="z-50 size-96 rounded rounded-br-2xl rounded-tl-2xl drop-shadow-xl saturate-0"
           src={"https://github.com/raphaeleliass.png"}
