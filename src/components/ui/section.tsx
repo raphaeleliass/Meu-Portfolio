@@ -22,7 +22,7 @@ export const SectionTitle = ({
 }: BaseProps<HTMLHeadingElement>) => (
   <h2
     className={clsx(
-      "font-Poppins text-xl font-semibold md:text-3xl",
+      "font-Poppins text-2xl font-semibold md:text-4xl",
       className,
     )}
     {...props}
@@ -37,7 +37,7 @@ export const SectionDescription = ({
 }: BaseProps<HTMLParagraphElement>) => (
   <p
     className={clsx(
-      "max-w-xs text-center text-sm text-muted-foreground md:max-w-sm",
+      "max-w-xs text-center  mt-4 text-sm text-muted-foreground md:max-w-sm",
       className,
     )}
     ref={ref}
