@@ -27,7 +27,7 @@ export default function Navbar() {
 
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant={"ghost"}>
+            <Button variant={"secondary"}>
               Get in touch <ArrowRight />
             </Button>
           </DialogTrigger>

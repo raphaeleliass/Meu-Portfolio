@@ -1,159 +1,127 @@
 "use client";
+import React, { useLayoutEffect, useRef } from "react";
+import { Section, SectionTitle } from "./ui/section";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
 import { Button } from "./ui/button";
-import { Download, ExternalLink } from "lucide-react";
-import { myTechs } from "@/data/myTechs";
+import { Download } from "lucide-react";
+import { bioData } from "@/data/bioData";
 import { Badge } from "./ui/badge";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "./ui/tooltip";
+import { Separator } from "./ui/separator";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
 export default function AboutMe() {
-  const divRef = useRef<HTMLDivElement>(null);
+  const aboutMeRef = useRef(null);
 
-  useEffect(() => {
-    const divReference = divRef.current;
+  useLayoutEffect(() => {
+    const aboutMe = aboutMeRef.current;
 
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerEffect(ScrollTrigger);
     gsap.fromTo(
-      divRef.current,
+      ".about-me-items",
       {
         opacity: 0,
+        y: -12,
       },
       {
         opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: divRef.current,
-          start: "top 40%",
-          end: "bottom 80%",
-          once: true,
-        },
-      },
-    );
-
-    gsap.fromTo(
-      ".article-items",
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: 1,
-        delay: 0.3,
+        y: 0,
+        duration: 0.3,
         stagger: 0.1,
         scrollTrigger: {
-          trigger: divRef.current,
+          trigger: aboutMe,
           start: "top 40%",
-          end: "bottom 80%",
-          once: true,
+          end: "center 60%",
         },
       },
     );
 
-    gsap.fromTo(
-      ".badges",
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: 1,
-        delay: 0.6,
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: divRef.current,
-          start: "top 40%",
-          end: "bottom 80%",
-          once: true,
-        },
-      },
-    );
-
-    return () => {
-      gsap.killTweensOf(divReference);
-      gsap.killTweensOf(".article-items");
-      gsap.killTweensOf(".badges");
-    };
+    return () => gsap.killTweensOf(".about-me-items");
   }, []);
 
   return (
-    <section className="flex min-h-dvh flex-col items-center justify-center">
-      <div
-        className="container flex w-auto flex-col items-center justify-between gap-6 rounded-3xl bg-neutral-900 p-6 lg:flex-row-reverse"
-        ref={divRef}
-      >
-        <Image
-          className="rounded-2xl object-cover object-center saturate-0 md:size-[36rem]"
-          src={"https://github.com/raphaeleliass.png"}
-          alt="Raphael's profile picture"
-          width={500}
-          height={500}
-        />
+    <Section className="about-me-items min-h-dvh gap-6 py-32" ref={aboutMeRef}>
+      <div className="flex w-full flex-col items-center justify-center gap-6 md:flex-row">
+        <div className="flex items-center justify-center md:w-1/3">
+          <Image
+            className="about-me-items w-full rounded rounded-bl-3xl rounded-tr-3xl object-cover object-center shadow-lg"
+            src={"https://github.com/raphaeleliass.png"}
+            alt="Raphael Elias profile picture"
+            width={500}
+            height={500}
+          />
+        </div>
 
-        <article className="article-items mx-auto flex flex-col items-start justify-center gap-6 lg:pl-6">
-          <h2 className="article-items font-Poppins text-2xl font-semibold md:text-3xl">
-            About me
-          </h2>
+        <div className="about-me-items flex w-full flex-col items-center justify-center gap-4 text-balance text-center md:w-2/3 md:indent-4">
+          <SectionTitle className="about-me-items">About Me</SectionTitle>
+          <span>
+            <p className="indent-8">
+              Hi, I&apos;m Raphael Elias, a Systems Analysis and Development
+              student passionate about web development and data analysis.
+            </p>
+            <p className="indent-8">
+              Experienced with React, TypeScript, NodeJS, and Python, with a
+              basic understanding of SEO and UI/UX principles.
+            </p>
+            <p className="indent-8">
+              Aiming to become a full-stack developer and explore international
+              opportunities.
+            </p>
+          </span>
 
-          <p className="article-items text-balance indent-4 text-sm md:max-w-lg">
-            Student of Systems Analysis and Development, focused on front-end
-            development and data analysis with Python. <br /> I have experience
-            in React, TypeScript, NodeJS, and Python, as well as basic knowledge
-            in SEO and UI/UX. <br /> I am looking for opportunities to improve
-            my skills and start my career in the technology field, with the goal
-            of becoming a full-stack developer and, in the future, exploring the
-            international market.
-          </p>
-
-          <div className="article-items flex flex-row gap-2">
-            <Button className="article-items" variant={"outline"}>
+          <div className="about-me-items flex w-full flex-row items-center justify-center gap-2">
+            <Button variant={"outline"}>
               <a
                 href="https://linkedin.com/in/raphaeleliass"
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                Visit my Linkedin
-              </a>{" "}
-              <ExternalLink />
+                Linkedin
+              </a>
             </Button>
-
-            <Button className="article-items" variant={"secondary"}>
+            <Button variant={"secondary"}>
               <a
                 href="/Raphael-Elias-CV.odt"
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                Download my CV
-              </a>{" "}
+                Download CV
+              </a>
               <Download />
             </Button>
           </div>
-
-          <h3 className="article-items mt-6 text-xl font-semibold md:text-2xl">
-            My knowledge
-          </h3>
-          <span className="article-items flex max-w-xl flex-row flex-wrap gap-1">
-            {myTechs.map((tech) => (
-              <TooltipProvider key={tech.name}>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Badge className="badges" variant={"secondary"}>
-                      {tech.name}
-                    </Badge>
-                  </TooltipTrigger>
-
-                  <TooltipContent>
-                    <p className="text-sm">{tech.description}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            ))}
-          </span>
-        </article>
+        </div>
       </div>
-    </section>
+
+      <div className="container flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row md:flex-nowrap">
+        {bioData.map((bio) => (
+          <div
+            className="about-me-items flex aspect-square h-full w-full flex-row items-center justify-center"
+            key={bio.title}
+          >
+            <div className="flex w-full flex-col items-center justify-center gap-4 text-center">
+              <h2 className="font-Poppins text-2xl font-semibold md:text-lg">
+                {bio.title}
+              </h2>
+              <div className="flex flex-row flex-wrap items-center justify-center gap-1">
+                {bio.skills.map((skill) => (
+                  <Badge
+                    className="about-me-items"
+                    variant={"outline"}
+                    key={skill.name}
+                  >
+                    {skill.name}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+            <Separator
+              orientation="vertical"
+              className="hidden h-1/2 md:block"
+            />
+          </div>
+        ))}
+      </div>
+    </Section>
   );
 }
