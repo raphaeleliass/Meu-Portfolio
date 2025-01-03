@@ -6,7 +6,6 @@ import { Button } from "./ui/button";
 import { Download } from "lucide-react";
 import { bioData } from "@/data/bioData";
 import { Badge } from "./ui/badge";
-import { Separator } from "./ui/separator";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 
@@ -115,10 +114,6 @@ export default function AboutMe() {
                 ))}
               </div>
             </div>
-            <Separator
-              orientation="vertical"
-              className="hidden h-1/2 md:block"
-            />
           </div>
         ))}
       </div>
