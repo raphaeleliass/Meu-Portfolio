@@ -1,5 +1,6 @@
-import { myProjects } from "@/data/myprojects";
-import React from "react";
+"use client";
+import React, { useLayoutEffect } from "react";
+import { projectsData } from "@/data/projectsData";
 import {
   Card,
   CardContent,
@@ -11,26 +12,55 @@ import {
 import Image from "next/image";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, LucideGlobe } from "lucide-react";
+import { Section, SectionDescription, SectionTitle } from "./ui/section";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 
 export default function Projects() {
-  return (
-    <section id="projects">
-      <h2 className="text-3xl font-semibold md:text-4xl">Discover</h2>
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+      ".project-items",
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 0.3,
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: ".project-items",
+          start: "top 40%",
+          end: "center 60%",
+        },
+      },
+    );
 
-      <div className="container mt-32 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {myProjects.map((project) => (
+    return () => gsap.killTweensOf(".project-items");
+  }, []);
+
+  return (
+    <Section className="project-items py-32" id="projects">
+      <SectionTitle>Spotlight Projects</SectionTitle>
+      <SectionDescription>
+        Discover a curated selection of projects that showcase innovation,
+        creativity, and technical prowess.
+      </SectionDescription>
+
+      <div className="project-items container mt-32 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {projectsData.map((project) => (
           <Card
-            className="flex flex-col justify-between bg-neutral-900"
+            className="project-items flex flex-col justify-between shadow-lg transition-all duration-300 hover:-translate-y-2"
             key={project.title}
           >
             <CardHeader>
               <Image
-                className="aspect-video w-full object-cover object-top rounded-lg"
+                className="aspect-video w-full rounded-lg object-cover object-top"
                 src={project.imageSrc}
                 alt={project.title}
-                width={100}
-                height={100}
+                width={1920}
+                height={1080}
               />
             </CardHeader>
 
@@ -55,25 +85,25 @@ export default function Projects() {
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  Check repository
+                  Repository
                 </a>
                 <ExternalLink />
               </Button>
 
               <Button className="w-full" variant={"secondary"}>
                 <a
-                  href={project.repoLink}
+                  href={project.siteLink}
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  Check site
+                  Open Site
                 </a>
-                <ExternalLink />
+                <LucideGlobe />
               </Button>
             </CardFooter>
           </Card>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

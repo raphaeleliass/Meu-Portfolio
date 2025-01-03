@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins, Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import Providers from "@/components/providers";
+import Providers from "@/components/ui/Providers";
+import { Toaster } from "@/components/ui/toaster";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -88,7 +89,10 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${montserrat.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <Toaster />
+        </Providers>
         <Analytics />
       </body>
     </html>
