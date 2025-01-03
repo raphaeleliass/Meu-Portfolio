@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Form,
   FormControl,
@@ -14,6 +14,9 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import emailjs from "@emailjs/browser";
+import { Loader2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   name: z.string().nonempty("Name is required").trim(),
@@ -26,6 +29,10 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const { toast } = useToast();
+
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,14 +44,58 @@ export default function ContactForm() {
     },
   });
 
+  function showSuccessToast() {
+    toast({
+      title: "Message sent!",
+      description: "Your message was sent successfully.",
+    });
+  }
+
+  function showErrorToast() {
+    toast({
+      title: "Error!",
+      description: "An error occurred while sending the message.",
+    });
+  }
+
+  function sendEmail({ name, lastname, email, subject, message }: FormValues) {
+    emailjs.send(
+      "service_o7ny5en",
+      "template_61vytqt",
+      {
+        to_name: "Raphael",
+        from_name: name + lastname,
+        subject: subject,
+        message: message,
+        reply_to: email,
+      },
+      "jJ5XwOIfS14pAp0R3",
+    );
+  }
+
   function submitForm(values: FormValues) {
-    console.log(values);
+    setIsSubmitting(true);
+    try {
+      sendEmail({
+        email: values.email,
+        name: values.name,
+        lastname: values.lastname,
+        subject: values.subject,
+        message: values.message,
+      });
+      showSuccessToast();
+      form.reset();
+      setIsSubmitting(false);
+    } catch {
+      showErrorToast();
+      setIsSubmitting(false);
+    }
   }
 
   return (
     <Form {...form}>
       <form
-        className="grid w-full grid-cols-2 gap-x-2 gap-y-4"
+        className="relative grid w-full grid-cols-2 gap-x-2 gap-y-4"
         onSubmit={form.handleSubmit(submitForm)}
       >
         <FormField
@@ -52,15 +103,15 @@ export default function ContactForm() {
           control={form.control}
           render={({ field }) => (
             <FormItem className="col-span-1">
-              <FormLabel htmlFor="name">Name</FormLabel>
+              <FormLabel>Name</FormLabel>
 
               <FormControl>
                 <Input
-                  id="name"
                   placeholder="Enter your name"
                   type="text"
                   autoComplete="off"
                   aria-label="Enter your full name"
+                  disabled={isSubmitting}
                   {...field}
                 />
               </FormControl>
@@ -75,15 +126,15 @@ export default function ContactForm() {
           control={form.control}
           render={({ field }) => (
             <FormItem className="col-span-1">
-              <FormLabel htmlFor="lastname">Last Name</FormLabel>
+              <FormLabel>Last Name</FormLabel>
 
               <FormControl>
                 <Input
-                  id="lastname"
                   placeholder="Enter your last name"
                   type="text"
                   autoComplete="off"
                   aria-label="Enter your last name"
+                  disabled={isSubmitting}
                   {...field}
                 />
               </FormControl>
@@ -98,15 +149,15 @@ export default function ContactForm() {
           control={form.control}
           render={({ field }) => (
             <FormItem className="col-span-2">
-              <FormLabel htmlFor="email">Email</FormLabel>
+              <FormLabel>Email</FormLabel>
 
               <FormControl>
                 <Input
-                  id="email"
                   placeholder="Enter your email"
                   type="email"
                   autoComplete="off"
                   aria-label="Enter your email address"
+                  disabled={isSubmitting}
                   {...field}
                 />
               </FormControl>
@@ -121,15 +172,15 @@ export default function ContactForm() {
           control={form.control}
           render={({ field }) => (
             <FormItem className="col-span-2">
-              <FormLabel htmlFor="subject">Subject</FormLabel>
+              <FormLabel>Subject</FormLabel>
 
               <FormControl>
                 <Input
-                  id="subject"
                   placeholder="Enter the subject"
                   type="text"
                   autoComplete="off"
                   aria-label="Enter the subject of your message"
+                  disabled={isSubmitting}
                   {...field}
                 />
               </FormControl>
@@ -144,15 +195,15 @@ export default function ContactForm() {
           control={form.control}
           render={({ field }) => (
             <FormItem className="col-span-2">
-              <FormLabel htmlFor="message">Message</FormLabel>
+              <FormLabel>Message</FormLabel>
 
               <FormControl>
                 <Textarea
-                  id="message"
                   className="h-32"
                   placeholder="Enter your message"
                   autoComplete="off"
                   aria-label="Enter the content of your message"
+                  disabled={isSubmitting}
                   {...field}
                 />
               </FormControl>
@@ -162,8 +213,13 @@ export default function ContactForm() {
           )}
         />
 
-        <Button className="col-span-2" variant={"secondary"} type="submit">
-          Submit
+        <Button
+          className="col-span-2"
+          variant={"secondary"}
+          type="submit"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? <Loader2 className="animate-spin" /> : "Submit"}
         </Button>
       </form>
     </Form>
