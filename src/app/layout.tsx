@@ -89,11 +89,13 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${montserrat.variable} antialiased`}
       >
-        <Providers>
-          {children}
-          <Toaster />
-        </Providers>
-        <Analytics />
+
+          <Providers>
+            {children}
+            <Toaster />
+          </Providers>
+          <Analytics />
+
       </body>
     </html>
   );

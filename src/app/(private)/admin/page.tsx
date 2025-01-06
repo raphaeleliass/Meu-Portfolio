@@ -24,6 +24,7 @@ export default function Page() {
 
     return () => unsub();
   }, [router]);
+
   return (
     <Section className="mx-auto">
       {loading ? <Loader2 className="animate-spin" /> : <AdminForm />}
