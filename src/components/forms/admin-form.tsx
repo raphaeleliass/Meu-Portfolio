@@ -14,14 +14,9 @@ import { Button } from "../ui/button";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FirebaseError } from "firebase/app";
-import {
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-} from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/firebaseConfig";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
-import { SiGoogle } from "@icons-pack/react-simple-icons";
 
 const formSchema = z.object({
   email: z.string().email().nonempty("Email is required").trim(),
@@ -52,15 +47,6 @@ export default function AdminForm() {
           form.setError("password", { message: "Invalid email or password" });
         }
       }
-    }
-  }
-
-  function signinWithGoogle() {
-    try {
-      const provider = new GoogleAuthProvider();
-      signInWithPopup(auth, provider);
-    } catch (err) {
-      alert(err);
     }
   }
 
@@ -138,10 +124,6 @@ export default function AdminForm() {
         </Button>
 
         <p className="mx-auto text-xs text-muted-foreground">or</p>
-
-        <Button onClick={signinWithGoogle} type="button">
-          <SiGoogle />
-        </Button>
       </form>
     </Form>
   );
