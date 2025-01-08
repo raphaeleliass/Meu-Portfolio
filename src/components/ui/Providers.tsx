@@ -1,5 +1,6 @@
 "use client";
 
+import { UserProvider } from "@/contexts/UserContext";
 import { ThemeProvider } from "next-themes";
 import { useState, useEffect } from "react";
 
@@ -15,7 +16,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <ThemeProvider
+   <UserProvider>
+     <ThemeProvider
       attribute="class"
       defaultTheme="system"
       enableSystem
@@ -24,5 +26,6 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     >
       {children}
     </ThemeProvider>
+   </UserProvider>
   );
 }
