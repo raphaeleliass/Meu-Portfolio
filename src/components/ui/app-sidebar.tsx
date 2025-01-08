@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { Dispatch, SetStateAction, useContext } from "react";
 import {
   Sidebar,
   SidebarContent,
@@ -21,8 +21,13 @@ import { ChevronsUpDown, LogOut } from "lucide-react";
 import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import { signOut } from "firebase/auth";
 import { auth } from "@/firebase/firebaseConfig";
+import { ModeToggle } from "./mode-toggle";
 
-export default function AppSidebar() {
+export default function AppSidebar({
+  onSelectView,
+}: {
+  onSelectView: Dispatch<SetStateAction<string>>;
+}) {
   const { userName, userEmail, userPhoto } = useContext(UserContext);
 
   function logoutUser() {
@@ -34,15 +39,33 @@ export default function AppSidebar() {
   }
 
   return (
-    <Sidebar>
+    <Sidebar variant="floating">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Options</SidebarGroupLabel>
+          <SidebarGroupLabel>Projects</SidebarGroupLabel>
 
           <SidebarGroupContent>
-            <SidebarMenuButton>Overview</SidebarMenuButton>
-            <SidebarMenuButton>All projects</SidebarMenuButton>
-            <SidebarMenuButton>Add new project</SidebarMenuButton>
+            <SidebarMenuButton
+              onClick={() => {
+                onSelectView("overview");
+              }}
+            >
+              Overview
+            </SidebarMenuButton>
+            <SidebarMenuButton
+              onClick={() => {
+                onSelectView("all-projects");
+              }}
+            >
+              All projects
+            </SidebarMenuButton>
+            <SidebarMenuButton
+              onClick={() => {
+                onSelectView("add-new-project");
+              }}
+            >
+              Add new project
+            </SidebarMenuButton>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
@@ -52,7 +75,7 @@ export default function AppSidebar() {
           <DropdownMenu>
             <DropdownMenuTrigger>
               <SidebarMenuButton asChild>
-                <div className="flex flex-row items-center gap-2">
+                <div className="flex flex-row items-center gap-1">
                   <Avatar className="size-6">
                     <AvatarImage src={`${userPhoto}`} />
 
@@ -62,7 +85,10 @@ export default function AppSidebar() {
                   </Avatar>
                   <div className="flex flex-col items-start justify-center">
                     <p className="text-xs">{userName}</p>
-                    <p className="text-xs text-muted-foreground">{userEmail}</p>
+
+                    <p className="overflow-clip text-ellipsis text-wrap text-xs text-muted-foreground md:max-w-36">
+                      {userEmail}
+                    </p>
                   </div>
                   <ChevronsUpDown className="ml-auto" />
                 </div>
@@ -73,6 +99,14 @@ export default function AppSidebar() {
               <DropdownMenuItem className="w-[--radix-popper-anchor-width]">
                 <SidebarMenu>
                   <SidebarMenuItem>
+                    <SidebarMenuButton>
+                      <ModeToggle
+                        className="w-full flex-row-reverse justify-between"
+                        variant="ghost"
+                      >
+                        Change color theme
+                      </ModeToggle>
+                    </SidebarMenuButton>
                     <SidebarMenuButton onClick={logoutUser}>
                       Logout <LogOut className="ml-auto" />
                     </SidebarMenuButton>
