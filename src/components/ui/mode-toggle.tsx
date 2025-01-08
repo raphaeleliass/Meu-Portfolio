@@ -18,7 +18,7 @@ export function ModeToggle({
 }: {
   className?: string;
   children?: ReactNode;
-  variant?:
+  variant:
     | "default"
     | "destructive"
     | "secondary"

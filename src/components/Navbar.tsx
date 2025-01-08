@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <header className="container fixed left-0 right-0 top-0 z-50 mx-auto flex w-full items-center justify-center bg-background px-4 py-6">
       <nav role="navigation" className="flex w-full flex-row justify-between">
-        <ModeToggle />
+        <ModeToggle variant="outline" />
 
         <Dialog>
           <DialogTrigger asChild>
