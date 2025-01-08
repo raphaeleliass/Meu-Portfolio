@@ -16,16 +16,16 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <UserProvider>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-        storageKey="theme"
-      >
-        {children}
-      </ThemeProvider>
-    </UserProvider>
+   <UserProvider>
+     <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+      storageKey="theme"
+    >
+      {children}
+    </ThemeProvider>
+   </UserProvider>
   );
 }
