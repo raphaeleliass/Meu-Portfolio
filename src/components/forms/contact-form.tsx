@@ -215,7 +215,7 @@ export default function ContactForm() {
 
         <Button
           className="col-span-2"
-          variant={"secondary"}
+          variant={"default"}
           type="submit"
           disabled={isSubmitting}
         >
