@@ -10,8 +10,8 @@ export default function ScrollToTopBtn() {
 
   return (
     <Button
-      className="fixed bottom-4 right-4 z-50 rounded-full"
-      variant={"secondary"}
+      className="fixed bottom-4 right-4 z-50 size-12 rounded-full"
+      variant={"default"}
       onClick={scrollToTop}
     >
       <ArrowUp />

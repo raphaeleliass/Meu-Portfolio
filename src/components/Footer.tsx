@@ -1,17 +1,28 @@
+"use client";
 import { linksData } from "@/data/linksData";
-import React from "react";
+import React, { useState } from "react";
 import {
   SiGithub,
   SiInstagram,
   SiLinkedin,
-  SiWhatsapp,
 } from "@icons-pack/react-simple-icons";
+import { Copy } from "lucide-react";
 
 export default function Footer() {
+  const [isEmailCopied, setEmailCopied] = useState<boolean>(false);
+
+  function copyToClipboard() {
+    navigator.clipboard.writeText("raphaeleliass@outlook.com");
+    setEmailCopied(true);
+    setTimeout(() => {
+      setEmailCopied(false);
+    }, 3000);
+  }
+
   return (
     <footer className="relative py-32">
       <div className="flex flex-col items-center justify-center text-center">
-        <h3 className="text-center font-Poppins text-2xl font-semibold md:text-3xl">
+        <h3 className="text-center font-poppins text-2xl font-semibold md:text-3xl">
           Let&apos;s connect!
         </h3>
         <span className="mt-4 flex flex-row gap-2">
@@ -27,9 +38,6 @@ export default function Footer() {
               {link.title === "Github" && (
                 <SiGithub className="transition-all hover:size-8" />
               )}
-              {link.title === "Whatsapp" && (
-                <SiWhatsapp className="transition-all hover:size-8" />
-              )}
               {link.title === "Instagram" && (
                 <SiInstagram className="transition-all hover:size-8" />
               )}
@@ -39,8 +47,16 @@ export default function Footer() {
             </a>
           ))}
         </span>
-        <p className="mt-4 text-sm text-muted-foreground">
-          Find me on social media
+        <p
+          className={`relative mt-4 flex cursor-pointer flex-row items-center gap-2 text-sm text-muted-foreground`}
+          onClick={copyToClipboard}
+        >
+          raphaeleliass@outlook.com <Copy size={16} />
+          {isEmailCopied && (
+            <span className="absolute -right-12 rounded-md bg-green-400 px-2 py-1 shadow-lg">
+              Copied!
+            </span>
+          )}
         </p>
       </div>
 
