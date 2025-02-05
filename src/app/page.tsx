@@ -1,28 +1,25 @@
-import AboutMe from "@/components/About-me";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Navigation from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
+import AboutMe from "@/components/About-me";
 import Projects from "@/components/Projects";
-import Services from "@/components/Services";
+import WhyMe from "@/components/why-me";
+import Contact from "@/components/Contact";
 import ScrollToTopBtn from "@/components/ui/scroll-to-top-btn";
-import React from "react";
+import Footer from "@/components/Footer";
 
-export default function Home() {
+const Index = () => {
   return (
-    <>
-      <Navbar />
-
-      <main className="flex flex-col items-center justify-center">
-        <Hero />
-        <Services />
-        <Projects />
-        <AboutMe />
-        <Contact />
-        <ScrollToTopBtn />
-      </main>
-
-      <Footer />
-    </>
+    <div className="min-h-screen">
+      <Navigation />
+      <Hero />
+      <AboutMe />
+      <Projects />
+      <WhyMe />
+      <Contact />
+      <ScrollToTopBtn />
+      <Footer/>
+    </div>
   );
-}
+};
+
+export default Index;

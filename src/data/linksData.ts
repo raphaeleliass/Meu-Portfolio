@@ -11,8 +11,5 @@ export const linksData = [
     title: "Instagram",
     url: "https://instagram.com/raphaeleliass",
   },
-  {
-    title: "Whatsapp",
-    url: "https://wa.me/5528999763920",
-  },
+
 ];
