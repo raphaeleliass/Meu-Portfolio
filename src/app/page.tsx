@@ -1,25 +1,26 @@
-import Navigation from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import AboutMe from "@/components/About-me";
-import Projects from "@/components/Projects";
-import WhyMe from "@/components/why-me";
-import Contact from "@/components/Contact";
+import Navigation from "@/components/layout/home/Navbar";
+import Hero from "@/components/layout/home/Hero";
+import AboutMe from "@/components/layout/home/About-me";
+import Projects from "@/components/layout/home/Projects";
+import WhyMe from "@/components/layout/home/why-me";
+import Contact from "@/components/layout/home/Contact";
 import ScrollToTopBtn from "@/components/ui/scroll-to-top-btn";
-import Footer from "@/components/Footer";
+import Footer from "@/components/layout/home/Footer";
 
-const Index = () => {
+export default function Page() {
   return (
-    <div className="min-h-screen">
+    <>
       <Navigation />
-      <Hero />
-      <AboutMe />
-      <Projects />
-      <WhyMe />
-      <Contact />
-      <ScrollToTopBtn />
-      <Footer/>
-    </div>
-  );
-};
+      <main>
+        <Hero />
+        <AboutMe />
+        <Projects />
+        <WhyMe />
+        <Contact />
+        <ScrollToTopBtn />
+      </main>
 
-export default Index;
+      <Footer />
+    </>
+  );
+}

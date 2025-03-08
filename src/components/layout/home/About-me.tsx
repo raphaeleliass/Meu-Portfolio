@@ -27,7 +27,7 @@ export default function AboutMe() {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="rounded-lg bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+              className="rounded-lg bg-white p-6 shadow-xs transition-shadow hover:shadow-md"
             >
               <div className="mb-4 text-accent">{skill.icon}</div>
               <h3 className="mb-2 font-semibold">{skill.title}</h3>

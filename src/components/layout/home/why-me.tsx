@@ -17,7 +17,7 @@ export default function WhyMe() {
         <div className="grid gap-6 text-left md:grid-cols-2">
           {reasons.map((reason, index) => (
             <div key={index} className="flex items-start gap-3">
-              <CheckCircle className="h-6 w-6 flex-shrink-0 text-accent" />
+              <CheckCircle className="h-6 w-6 shrink-0 text-accent" />
               <p className="text-secondary text-sm">{reason}</p>
             </div>
           ))}

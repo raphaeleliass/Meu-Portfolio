@@ -18,7 +18,7 @@ export default function Projects() {
             >
               <div className="aspect-video overflow-hidden">
                 <Image
-                  className="h-full w-full object-cover object-top shadow-sm transition-transform duration-300 group-hover:scale-105"
+                  className="h-full w-full object-cover object-top shadow-xs transition-transform duration-300 group-hover:scale-105"
                   src={project.imageSrc}
                   alt={project.title}
                   priority

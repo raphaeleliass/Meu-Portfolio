@@ -96,7 +96,7 @@ export default function AppSidebar({
             </DropdownMenuTrigger>
 
             <DropdownMenuContent>
-              <DropdownMenuItem className="w-[--radix-popper-anchor-width]">
+              <DropdownMenuItem className="w-(--radix-popper-anchor-width)">
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton>
