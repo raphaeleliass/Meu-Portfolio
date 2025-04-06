@@ -1,23 +1,26 @@
-import Navigation from "@/components/layout/home/Navbar";
-import Hero from "@/components/layout/home/Hero";
-import AboutMe from "@/components/layout/home/About-me";
-import Projects from "@/components/layout/home/Projects";
-import WhyMe from "@/components/layout/home/why-me";
-import Contact from "@/components/layout/home/Contact";
+// component imports
+import About from "@/components/layouts/Home/About";
+import Contact from "@/components/layouts/Home/Contact";
+import Footer from "@/components/layouts/Home/Footer";
+import Hero from "@/components/layouts/Home/Hero";
+import Logos from "@/components/layouts/Home/Logos";
+import Navigation from "@/components/layouts/Home/Navbar";
+import Projects from "@/components/layouts/Home/Projects";
 import ScrollToTopBtn from "@/components/ui/scroll-to-top-btn";
-import Footer from "@/components/layout/home/Footer";
 
 export default function Page() {
   return (
     <>
-      <Navigation />
-      <main>
+      <main className="flex flex-col items-center justify-center" id="main">
+        <Navigation />
         <Hero />
-        <AboutMe />
+        <Logos />
+        <About />
         <Projects />
-        <WhyMe />
         <Contact />
         <ScrollToTopBtn />
+
+        {/* <Scene /> */}
       </main>
 
       <Footer />
