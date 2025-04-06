@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "i.imgur.com",
+        hostname: "images.pexels.com",
       },
     ],
   },
