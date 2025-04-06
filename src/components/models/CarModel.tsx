@@ -14,6 +14,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useThree } from "@react-three/fiber";
+import { useControls } from "leva";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,7 +87,16 @@ export default function Model({ ...props }) {
   const { actions } = useAnimations(animations, group);
   const { size } = useThree();
 
-  const sizeModel = size.width < size.height ? 0.003 : 0.01;
+  const sizeModel = size.width < size.height ? 0.003 : 0.005;
+
+  const { posX, posY, posZ, rotX, rotY, rotZ } = useControls({
+    posX: { value: -1.6, min: -10, max: 10, step: 0.1 },
+    posY: { value: 0, min: -10, max: 10, step: 0.1 },
+    posZ: { value: -2.1, min: -10, max: 10, step: 0.1 },
+    rotX: { value: 0, min: -10, max: 10, step: 0.1 },
+    rotY: { value: 0, min: -10, max: 10, step: 0.1 },
+    rotZ: { value: 0, min: -10, max: 10, step: 0.1 },
+  });
 
   useEffect(() => {
     if (!actions) return;
@@ -102,7 +112,8 @@ export default function Model({ ...props }) {
       !frontLeftWheelRef.current ||
       !frontRightWheelRef.current ||
       !backLeftWheelRef.current ||
-      !backRightWheelRef.current
+      !backRightWheelRef.current ||
+      !group.current
     )
       return;
 
@@ -121,6 +132,8 @@ export default function Model({ ...props }) {
         scrub: true,
       },
     });
+
+  
 
     {
       wheels.slice(0, 2).map((model) => {
@@ -146,6 +159,7 @@ export default function Model({ ...props }) {
         );
       });
     }
+
     return () => {
       timeline.scrollTrigger?.kill();
       timeline.kill();
@@ -153,13 +167,17 @@ export default function Model({ ...props }) {
   }, []);
 
   return (
-    <group ref={group} {...props} dispose={null} scale={sizeModel}>
+    <group
+      ref={group}
+      {...props}
+      dispose={null}
+      scale={sizeModel}
+      rotation={[rotX, rotY, rotZ]}
+      position={[posX, posY, posZ]}
+    >
       <group name="Sketchfab_Scene">
-        <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
-          <group
-            name="7f09d404031140d78a7bb6db74b81fa4fbx"
-            rotation={[Math.PI / 2, 0, 0]}
-          >
+        <group name="Sketchfab_model">
+          <group name="7f09d404031140d78a7bb6db74b81fa4fbx">
             <group name="Object_2">
               <group name="RootNode">
                 <group
