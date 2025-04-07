@@ -1,0 +1,92 @@
+{
+  "navigation": {
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "hero": {
+    "greeting": "Prazer, sou",
+    "name": "Raphael",
+    "role": "Desenvolvedor Frontend",
+    "description": "Explore meu portfólio, entre em contato e descubra meus projetos mais recentes",
+    "drivenBy": "movido por",
+    "words": ["desafios", "criatividade", "inovação", "aprendizado"],
+    "cta": {
+      "portfolio": "Ver Portfólio",
+      "resume": "Baixar Currículo"
+    }
+  },
+  "about": {
+    "title": "Sobre mim",
+    "subtitle": "Desenvolvedor Frontend apaixonado por criar experiências digitais excepcionais.",
+    "description": "Com mais de 2 anos de experiência, especializo-me em desenvolver interfaces modernas e responsivas utilizando React, Next.js e TypeScript. Meu foco está em criar soluções que não apenas atendam às necessidades técnicas, mas também proporcionem uma experiência de usuário excepcional.",
+    "button": "Saiba mais"
+  },
+  "projects": {
+    "sectionTitle": "Projetos em Destaque",
+    "viewAll": "Ver Todos",
+    "site": "Site",
+    "repository": "Repositório",
+    "list": {
+      "portfolio3d": {
+        "title": "Portfólio 3D",
+        "description": "Um portfólio moderno e interativo construído com Next.js, Three.js e GSAP. Apresenta um modelo 3D de carro que responde à interação do usuário e animações suaves para uma experiência única."
+      },
+      "todoApp": {
+        "title": "Todo App",
+        "description": "Um aplicativo de tarefas simples e intuitivo que permite aos usuários gerenciar eficientemente as tarefas diárias. Os usuários podem adicionar, editar, remover tarefas e marcá-las como concluídas."
+      },
+      "streamVibe": {
+        "title": "Stream Vibe",
+        "description": "Um site que consome a API do TMDB, lista categorias de filmes e permite aos usuários adicionar filmes aos seus favoritos."
+      },
+      "ageCalculator": {
+        "title": "Calculadora de Idade",
+        "description": "Uma calculadora de idade interativa que permite aos usuários inserir uma data de nascimento e calcular a idade exata em anos, meses e dias. Possui validação em tempo real e uma interface elegante."
+      },
+      "crowdfund": {
+        "title": "Crowdfund Project",
+        "description": "Um projeto de financiamento coletivo com uma interface moderna, apresentando um design responsivo construído para desktop e mobile."
+      }
+    }
+  },
+  "contact": {
+    "title": "Vamos nos conectar!",
+    "description": "Me envie uma mensagem ou entre em contato pelas redes sociais.",
+    "availability": "Disponível para novos projetos",
+    "form": {
+      "name": "Nome",
+      "email": "E-mail",
+      "message": "Mensagem",
+      "submit": "Enviar mensagem",
+      "success": "Mensagem enviada com sucesso!",
+      "error": "Erro ao enviar mensagem. Tente novamente.",
+      "placeholders": {
+        "name": "Digite seu nome",
+        "email": "Digite seu e-mail",
+        "message": "Digite sua mensagem"
+      },
+      "validation": {
+        "required": "Este campo é obrigatório",
+        "email": "Digite um e-mail válido",
+        "minLength": "Digite pelo menos {min} caracteres",
+        "maxLength": "Digite no máximo {max} caracteres"
+      }
+    },
+    "social": {
+      "ariaLabel": "Link para rede social {network}"
+    }
+  },
+  "footer": {
+    "copyright": "{year} © Raphael Elias",
+    "social": {
+      "ariaLabel": "Link para rede social {network}"
+    }
+  },
+  "notFound": {
+    "title": "Página não encontrada!",
+    "description": "Desculpe, não conseguimos encontrar a página que você estava procurando. Você pode voltar para a página inicial clicando no botão abaixo.",
+    "button": "Página Inicial"
+  }
+}

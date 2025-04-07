@@ -1,0 +1,92 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Raphael",
+    "role": "Frontend Developer",
+    "description": "Explore my portfolio, get in touch and discover my latest projects",
+    "drivenBy": "driven by",
+    "words": ["challenges", "creativity", "innovation", "learning"],
+    "cta": {
+      "portfolio": "View Portfolio",
+      "resume": "Download Resume"
+    }
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "Frontend Developer passionate about creating exceptional digital experiences.",
+    "description": "With over 2 years of experience, I specialize in developing modern and responsive interfaces using React, Next.js, and TypeScript. My focus is on creating solutions that not only meet technical requirements but also provide an exceptional user experience.",
+    "button": "Learn more"
+  },
+  "projects": {
+    "sectionTitle": "Featured Projects",
+    "viewAll": "View All",
+    "site": "Site",
+    "repository": "Repository",
+    "list": {
+      "portfolio3d": {
+        "title": "3D Portfolio",
+        "description": "A modern and interactive portfolio built with Next.js, Three.js, and GSAP. Features a 3D car model that responds to user interaction and smooth animations for a unique experience."
+      },
+      "todoApp": {
+        "title": "Todo App",
+        "description": "A simple and intuitive task application that allows users to efficiently manage daily tasks. Users can add, edit, remove tasks and mark them as completed."
+      },
+      "streamVibe": {
+        "title": "Stream Vibe",
+        "description": "A website that consumes the TMDB API, lists movie categories and allows users to add movies to their favorites."
+      },
+      "ageCalculator": {
+        "title": "Age Calculator",
+        "description": "An interactive age calculator that allows users to input a birth date and calculate the exact age in years, months, and days. Features real-time validation and an elegant interface."
+      },
+      "crowdfund": {
+        "title": "Crowdfund Project",
+        "description": "A crowdfunding project with a modern interface, featuring a responsive design built for desktop and mobile."
+      }
+    }
+  },
+  "contact": {
+    "title": "Let's connect!",
+    "description": "Send me a message or get in touch through social media.",
+    "availability": "Available for new projects",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send message",
+      "success": "Message sent successfully!",
+      "error": "Error sending message. Please try again.",
+      "placeholders": {
+        "name": "Enter your name",
+        "email": "Enter your email",
+        "message": "Enter your message"
+      },
+      "validation": {
+        "required": "This field is required",
+        "email": "Please enter a valid email",
+        "minLength": "Please enter at least {min} characters",
+        "maxLength": "Please enter no more than {max} characters"
+      }
+    },
+    "social": {
+      "ariaLabel": "Link to {network} social media"
+    }
+  },
+  "footer": {
+    "copyright": "{year} © Raphael Elias",
+    "social": {
+      "ariaLabel": "Link to {network} social media"
+    }
+  },
+  "notFound": {
+    "title": "Page not found!",
+    "description": "Sorry, we couldn't find the page you were looking for. You can go back to the homepage by clicking the button below.",
+    "button": "Homepage"
+  }
+}
