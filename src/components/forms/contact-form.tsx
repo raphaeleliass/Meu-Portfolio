@@ -19,11 +19,11 @@ import { Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  name: z.string().nonempty("Name is required").trim(),
-  lastname: z.string().nonempty("Last name is required").trim(),
-  email: z.string().email("Invalid email address").trim(),
-  subject: z.string().nonempty("Subject is required").trim(),
-  message: z.string().nonempty("Message is required").trim(),
+  name: z.string().nonempty("Nome é obrigatório").trim(),
+  lastname: z.string().nonempty("Sobrenome é obrigatório").trim(),
+  email: z.string().email("Email inválido").trim(),
+  subject: z.string().nonempty("Assunto é obrigatório").trim(),
+  message: z.string().nonempty("Mensagem é obrigatória").trim(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -103,7 +103,7 @@ export default function ContactForm() {
           control={form.control}
           render={({ field }) => (
             <FormItem className="col-span-1">
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Nome</FormLabel>
 
               <FormControl>
                 <Input
@@ -126,7 +126,7 @@ export default function ContactForm() {
           control={form.control}
           render={({ field }) => (
             <FormItem className="col-span-1">
-              <FormLabel>Last Name</FormLabel>
+              <FormLabel>Sobrenome</FormLabel>
 
               <FormControl>
                 <Input
@@ -172,7 +172,7 @@ export default function ContactForm() {
           control={form.control}
           render={({ field }) => (
             <FormItem className="col-span-2">
-              <FormLabel>Subject</FormLabel>
+              <FormLabel>Assunto</FormLabel>
 
               <FormControl>
                 <Input
@@ -195,7 +195,7 @@ export default function ContactForm() {
           control={form.control}
           render={({ field }) => (
             <FormItem className="col-span-2">
-              <FormLabel>Message</FormLabel>
+              <FormLabel>Mensagem</FormLabel>
 
               <FormControl>
                 <Textarea
@@ -219,7 +219,7 @@ export default function ContactForm() {
           type="submit"
           disabled={isSubmitting}
         >
-          {isSubmitting ? <Loader2 className="animate-spin" /> : "Submit"}
+          {isSubmitting ? <Loader2 className="animate-spin" /> : "Enviar"}
         </Button>
       </form>
     </Form>

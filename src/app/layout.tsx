@@ -1,24 +1,22 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Poppins, Montserrat } from "next/font/google";
+import { Inter, Inter_Tight } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import Providers from "@/components/ui/Providers";
 import { Toaster } from "@/components/ui/toaster";
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-montserrat",
-  weight: ["300", "400", "600", "700"],
+  variable: "--font-inter",
   display: "swap",
-  fallback: ["sans-serif", "arial"],
+  fallback: ["system-ui", "sans-serif"],
 });
 
-const poppins = Poppins({
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  variable: "--font-poppins",
-  weight: ["300", "400", "600", "700"],
+  variable: "--font-inter-tight",
   display: "swap",
-  fallback: ["sans-serif", "arial"],
+  fallback: ["system-ui", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -86,9 +84,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body
-        className={`${poppins.variable} ${montserrat.variable} antialiased`}
-      >
+      <body className={`${inter.variable} ${interTight.variable} antialiased`}>
         <Providers>
           {children}
           <Toaster />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { ThemeProvider } from "./theme-provider";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
@@ -13,5 +14,14 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     return <>{children}</>;
   }
 
-  return <>{children}</>;
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="light"
+      enableSystem
+      disableTransitionOnChange
+    >
+      {children}
+    </ThemeProvider>
+  );
 }
