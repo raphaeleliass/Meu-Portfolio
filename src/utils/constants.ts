@@ -48,10 +48,23 @@ export const socialLinks = [
 
 export const projectsData = [
   {
+    title: "Portfolio 3D",
+    description:
+      "Um portfólio interativo em 3D que utiliza Three.js para criar uma experiência visual imersiva. Apresenta projetos e habilidades de forma inovadora.",
+    imageSrc: "/images/portfolio-3d.png",
+    siteLink: "https://raphaelelias-portfolio-3d.vercel.app/",
+    repoLink: "https://github.com/raphaeleliass/portfolio-3d",
+    technologies: [
+      { name: "Three.js" },
+      { name: "React" },
+      { name: "TypeScript" },
+    ],
+  },
+  {
     title: "Todo App",
     description:
       "A simple and intuitive Todo App that allows users to efficiently manage daily tasks. Users can add, edit, remove tasks, and mark them as completed. Built with NextJS for a dynamic and responsive user experience.",
-    imageSrc: "/todo-app.png",
+    imageSrc: "/images/todoapp.png",
     siteLink: "https://raphaelelias-todo-app.vercel.app",
     repoLink: "https://github.com/raphaeleliass/todo-app",
     technologies: [
@@ -66,7 +79,7 @@ export const projectsData = [
     title: "Stream Vibe",
     description:
       "A site that consumes the TMDB API, lists movie categories, and allows users to add movies to their favorites.",
-    imageSrc: "/stream-vibe.png",
+    imageSrc: "/images/streamvibe.png",
     siteLink: "https://raphaelelias-stream-vibe.vercel.app/",
     repoLink: "https://github.com/raphaeleliass/stream-vibe",
     technologies: [
@@ -79,7 +92,7 @@ export const projectsData = [
     title: "Age Calculator",
     description:
       "An interactive age calculator that allows users to input a birthdate and calculate the exact age in years, months, and days. Features real-time validation and a sleek UI.",
-    imageSrc: "/age-calculator.png",
+    imageSrc: "/images/age-calculator.png",
     siteLink: "https://raphaelelias-agecalculator.vercel.app/",
     repoLink: "https://github.com/raphaeleliass/age-calculator",
     technologies: [
@@ -92,7 +105,7 @@ export const projectsData = [
     title: "Crowdfund Project",
     description:
       "A Crowdfund project with a modern interface, showcasing a responsive design built for desktop and mobile.",
-    imageSrc: "/crowdfund.png",
+    imageSrc: "/images/crowdfund.png",
     siteLink: "https://raphaelelias-crowdfund.vercel.app/",
     repoLink: "https://github.com/raphaeleliass/crowdfund-project",
     technologies: [{ name: "HTML" }, { name: "TailwindCSS" }],

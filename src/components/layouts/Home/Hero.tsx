@@ -22,57 +22,52 @@ import { motion } from "motion/react";
 
 // component imports
 import { FlipWords } from "@/components/ui/flip-words";
+import Scene from "@/components/models/Scene";
 
 const words = ["desafios", "criatividade", "inovação", "aprendizado"];
 
 export default function Hero() {
   return (
-    <section className="custom-section mt-4 flex min-h-[80dvh] w-full flex-col items-start justify-center">
-      <motion.article
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ type: "spring", bounce: 0.4, duration: 0.5 }}
-        className="font-inter-tight w-full lg:w-1/2"
-      >
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            type: "spring",
-            bounce: 0.4,
-            duration: 0.5,
-            delay: 0.2,
-          }}
-          className="font-light"
-        >
+    <motion.section
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ type: "spring", bounce: 0.6 }}
+      className="custom-section mt-20 flex min-h-[80dvh] w-full flex-col items-start justify-center lg:mt-4 lg:flex-row lg:items-center lg:justify-between"
+    >
+      <article className="font-inter-tight w-full lg:w-1/2">
+        <p className="font-light">
           Prazer, sou <strong>Raphael</strong> 🤠
-        </motion.p>
+        </p>
 
         <h1 className="text-5xl font-light tracking-tight text-balance lg:text-6xl">
           Desenvolvedor Frontend <br /> movido por <br />
           <FlipWords className="px-0 font-medium" words={words} />.
         </h1>
 
-        <motion.div
-          animate={{ y: -20 }}
-          whileInView={{ y: 0 }}
-          transition={{
-            type: "spring",
-            bounce: 0.4,
-            duration: 0.5,
-            delay: 0.2,
-          }}
-          className="mt-5 flex flex-col flex-wrap gap-2"
-        >
+        <div className="mt-5 flex flex-col flex-wrap gap-2">
           <div className="mt-6 flex flex-row gap-2">
             <Button variant="default">
-              Ver Portfólio <ChevronRight />
+              <Link
+                href="/portfolio"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="flex flex-row items-center gap-2"
+              >
+                Ver Portfólio <ChevronRight />
+              </Link>
             </Button>
             <Button variant="link">
-              Baixar Currículo <Download />
+              <Link
+                href={"/Curriculo_Raphael_Elias.pdf"}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="flex flex-row items-center gap-2"
+              >
+                Baixar Currículo <Download />
+              </Link>
             </Button>
           </div>
-        </motion.div>
+        </div>
         <div className="mt-4 flex flex-row gap-4">
           {socialLinks.map((link, index) => {
             const Icon = link.icon;
@@ -99,7 +94,11 @@ export default function Hero() {
             );
           })}
         </div>
-      </motion.article>
-    </section>
+      </article>
+
+      <article className="relative mx-auto h-72 w-1/2 lg:h-100">
+        <Scene />
+      </article>
+    </motion.section>
   );
 }

@@ -12,6 +12,9 @@ import { ChevronRight } from "lucide-react";
 
 // motion imports
 import { motion } from "motion/react";
+import { Badge } from "@/components/ui/badge";
+
+const stacks = ["React", "NextJS", "NodeJS", "Typescript"];
 
 export default function About() {
   return (
@@ -23,7 +26,7 @@ export default function About() {
       className="custom-section mt-32 flex h-dvh flex-col items-center justify-center lg:flex-row"
       id="sobre"
     >
-      <div className="bg-secondary group relative flex h-100 w-2/3 items-center justify-center rounded-lg border drop-shadow-lg transition-all duration-300 hover:scale-105">
+      <div className="bg-secondary group relative flex h-100 w-2/3 items-center justify-center rounded-lg border shadow-lg transition-all duration-300 hover:scale-105">
         <Image
           className="relative rounded-2xl object-cover object-center p-3 transition-all duration-300 group-hover:rotate-2"
           src={"https://github.com/raphaeleliass.png"}
@@ -46,12 +49,20 @@ export default function About() {
             oportunidades para aprender e crescer na área de desenvolvimento.
           </p>
         </span>
+
+        <div className="flex flex-row items-center gap-1">
+          {stacks.map((stack, index) => (
+            <Badge variant={"secondary"} key={index}>
+              {stack}
+            </Badge>
+          ))}
+        </div>
+
         <Link href={"/sobre"} target="_blank" rel="noopener noreferrer">
           <Button
-            variant={"linkBlue"}
             aria-label="botão para ver descrição sobre completa"
           >
-            Ver Mais <ChevronRight />
+            Saiba Mais <ChevronRight />
           </Button>
         </Link>
       </div>
