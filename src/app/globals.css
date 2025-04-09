@@ -115,6 +115,14 @@
 }
 
 @layer base {
+  ::-moz-selection {
+    @apply bg-foreground text-background;
+  }
+
+  ::selection {
+    @apply bg-foreground text-background;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
