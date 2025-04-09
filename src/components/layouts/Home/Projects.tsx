@@ -8,15 +8,14 @@ import Image from "next/image";
 import { Button } from "../../ui/button";
 
 // icon imports
-import { SiGithub } from "@icons-pack/react-simple-icons";
-import { ChevronRight, Globe } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 // motion imports
 import { motion } from "motion/react";
 
 import { projectsData } from "@/utils/constants";
 import { Badge } from "@/components/ui/badge";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
+import LinkButtons from "@/components/ui/link-buttons";
 
 export default function Projects() {
   return (
@@ -42,17 +41,10 @@ export default function Projects() {
       <article className="grid grid-cols-1 gap-x-4 gap-y-10 lg:grid-cols-2">
         {projectsData.slice(0, 2).map((project, index) => (
           <div
-            className="group rounded-2.5xl relative col-span-1 flex h-full w-full flex-col justify-between gap-7 border p-2 md:rounded-3xl md:p-3"
+            className="group relative col-span-1 flex h-full w-full flex-col justify-between gap-7"
             key={index}
           >
-            <GlowingEffect
-              spread={40}
-              glow={true}
-              disabled={false}
-              proximity={64}
-              inactiveZone={0.01}
-            />
-            <div className="relative aspect-video overflow-hidden rounded-xl border p-2 shadow-lg">
+            <div className="relative aspect-video overflow-hidden rounded-xl  shadow-lg">
               <Image
                 src={project.imageSrc}
                 alt={project.title}
@@ -77,30 +69,10 @@ export default function Projects() {
               </div>
             </div>
 
-            <div className="flex flex-row gap-2">
-              <Button>
-                <a
-                  href={project.siteLink}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="flex flex-row items-center gap-2"
-                >
-                  <Globe />
-                  Site
-                </a>
-              </Button>
-              <a
-                href={project.repoLink}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="flex flex-row items-center gap-2"
-              >
-                <Button variant={"secondary"}>
-                  <SiGithub />
-                  Repositório
-                </Button>
-              </a>
-            </div>
+            <LinkButtons
+              hrefSite={project.siteLink}
+              hrefRepo={project.repoLink}
+            />
           </div>
         ))}
       </article>

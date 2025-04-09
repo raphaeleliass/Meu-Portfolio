@@ -1,8 +1,7 @@
 // ui imports
-import { Button } from "@/components/ui/button";
+import LinkButtons from "@/components/ui/link-buttons";
 import { projectsData } from "@/utils/constants";
-import { SiGithub } from "@icons-pack/react-simple-icons";
-import { Globe } from "lucide-react";
+
 import Image from "next/image";
 
 export default function Spotlight() {
@@ -10,25 +9,23 @@ export default function Spotlight() {
     <section className="custom-section">
       <article className="flex flex-col gap-7">
         {projectsData.slice(0, 2).map((project, index) => (
-          <div
-            className="group relative aspect-video overflow-hidden rounded-2xl border shadow-lg"
-            key={index}
-          >
-            <Image
-              src={project.imageSrc}
-              alt="imagem do projeto"
-              fill
-              className="object-cover object-center"
-            />
-            <div className="bg-foreground/30 absolute inset-0 flex items-center justify-center opacity-0 backdrop-blur-lg transition-all group-hover:opacity-100 gap-2">
-              <Button variant={"default"}>
-                <Globe />
-                Site
-              </Button>
-              <Button variant={"secondary"}>
-                <SiGithub />
-                Repositório
-              </Button>
+          <div className="group w-full rounded-2xl" key={index}>
+            <div className="relative aspect-video overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                className="object-cover object-center transition-transform duration-300 ease-in-out group-hover:scale-105"
+                src={project.imageSrc}
+                alt={`imagem do projeto ${project.title}`}
+                fill
+                quality={100}
+                priority
+              />
+            </div>
+            <div className="mt-5 flex w-full flex-row items-center justify-between">
+              <h3 className="text-xl">{project.title}</h3>{" "}
+              <LinkButtons
+                hrefSite={project.siteLink}
+                hrefRepo={project.repoLink}
+              />
             </div>
           </div>
         ))}
