@@ -21,8 +21,8 @@ import { socialLinks } from "@/utils/constants";
 import { motion } from "motion/react";
 
 // component imports
-import { FlipWords } from "@/components/ui/flip-words";
 import Scene from "@/components/models/Scene";
+import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 
 const words = ["desafios", "criatividade", "inovação", "aprendizado"];
 
@@ -41,7 +41,11 @@ export default function Hero() {
 
         <h1 className="text-5xl font-light tracking-tight text-balance lg:text-6xl">
           Desenvolvedor Frontend <br /> movido por <br />
-          <FlipWords className="px-0 font-medium" words={words} />.
+          <ContainerTextFlip
+            className="px-0 font-medium shadow-none"
+            words={words}
+          />
+          .
         </h1>
 
         <div className="mt-5 flex flex-col flex-wrap gap-2">
