@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Inter_Tight } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import Providers from "@/components/ui/Providers";
-import { ThemeProvider } from "@/components/ui/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
+import Providers from "./providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -85,14 +85,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br" suppressHydrationWarning>
       <body className={`${inter.variable} ${interTight.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          disableTransitionOnChange
-          enableSystem
-        >
-          <Providers>{children}</Providers>
-        </ThemeProvider>
+        <Providers>
+          {children}
+          <Toaster />
+        </Providers>
         <Analytics />
       </body>
     </html>
