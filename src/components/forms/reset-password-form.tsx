@@ -63,7 +63,7 @@ export default function ResetPasswordForm({ onClose }: ResetFormProps) {
 
   return (
     <Card
-      className={`relative w-full max-w-sm min-w-sm overflow-hidden transition-all duration-500 ease-in-out md:max-w-lg md:min-w-lg ${isSubmitSuccessful ? "h-52" : "h-90"}`}
+      className={`relative w-full max-w-sm min-w-sm overflow-hidden transition-all duration-500 ease-in-out md:max-w-lg md:min-w-lg ${isSubmitSuccessful ? "h-52" : "h-94"}`}
     >
       <CardHeader className="bg-card z-50 px-2">
         <Button className="mr-auto" variant={"link"} onClick={onClose}>
@@ -71,7 +71,7 @@ export default function ResetPasswordForm({ onClose }: ResetFormProps) {
         </Button>
       </CardHeader>
 
-      <div className="relative flex h-60 w-full flex-col justify-between overflow-hidden">
+      <div className="relative flex h-68 w-full flex-col justify-between overflow-hidden">
         <div
           className={`absolute left-0 z-30 space-y-5 transition-all duration-500 ease-in-out ${isSubmitSuccessful ? "-top-full opacity-0" : "top-2 opacity-100"}`}
         >
@@ -91,6 +91,7 @@ export default function ResetPasswordForm({ onClose }: ResetFormProps) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Email</FormLabel>
+                      <FormMessage className="text-xs text-red-400" />
                       <FormControl>
                         <Input
                           placeholder="Insira seu email"
@@ -100,7 +101,6 @@ export default function ResetPasswordForm({ onClose }: ResetFormProps) {
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
                     </FormItem>
                   )}
                 />

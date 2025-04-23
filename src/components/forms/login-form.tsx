@@ -1,8 +1,24 @@
 "use client";
+
+/* React and Form Management */
 import { useState } from "react";
+import { useForm, useFormState } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+/* Firebase and Authentication */
+import { setCookie } from "nookies";
+import { auth } from "@/firebase/firebase-config";
+import { FirebaseError } from "firebase/app";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
+/* Custom Hooks */
+import { useToast } from "@/hooks/use-toast";
+
+/* UI Components */
 import { Button } from "../ui/button";
-import { Eye, EyeClosed, Loader2 } from "lucide-react";
 import { Input } from "../ui/input";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import {
   Form,
   FormControl,
@@ -11,15 +27,12 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { useToast } from "@/hooks/use-toast";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, useFormState } from "react-hook-form";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { FirebaseError } from "firebase/app";
-import { auth } from "@/firebase/firebase-config";
 
+/* Icons */
+import { Eye, EyeClosed, Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+
+/* Form validation schema using Zod */
 const formSchema = z.object({
   email: z
     .string()
@@ -28,16 +41,21 @@ const formSchema = z.object({
   password: z.string().nonempty("Este campo não pode estar vazio").trim(),
 });
 
+/* Type inference from the schema */
 type FormSchemaProps = z.infer<typeof formSchema>;
 
+/* Component props interface */
 interface LoginProps {
   onForgotPassword: () => void;
 }
 
 export default function LoginForm({ onForgotPassword }: LoginProps) {
+  /* Hooks initialization */
   const { toast } = useToast();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const router = useRouter();
 
+  /* Form initialization with Zod schema */
   const form = useForm<FormSchemaProps>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,12 +64,15 @@ export default function LoginForm({ onForgotPassword }: LoginProps) {
     },
   });
 
+  /* Form submission state */
   const { isSubmitting } = useFormState({ control: form.control });
 
+  /* Password visibility toggle handler */
   function togglePasswordVisibility() {
     setIsPasswordVisible((prev) => !prev);
   }
 
+  /* Form submission handler with Firebase authentication */
   async function submitForm(formValues: FormSchemaProps) {
     try {
       await signInWithEmailAndPassword(
@@ -59,6 +80,13 @@ export default function LoginForm({ onForgotPassword }: LoginProps) {
         formValues.email,
         formValues.password,
       );
+      const token = await auth.currentUser?.getIdToken();
+      setCookie(null, "token", token as string, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: "/",
+      });
+      router.push("/admin/dashboard");
+      form.reset();
     } catch (err) {
       if (err instanceof FirebaseError) {
         toast({
@@ -68,8 +96,6 @@ export default function LoginForm({ onForgotPassword }: LoginProps) {
           duration: 2000,
         });
       }
-    } finally {
-      form.reset();
     }
   }
 
@@ -138,31 +164,33 @@ export default function LoginForm({ onForgotPassword }: LoginProps) {
                       )}
                     </button>
                   </div>
-                  <Button
-                    variant={"linkBlue"}
-                    size={"sm"}
-                    className="mr-auto pl-0 text-xs"
-                    onClick={onForgotPassword}
-                    type="button"
-                  >
-                    esqueci minha senha
-                  </Button>
                 </FormItem>
               )}
             />
 
-            <Button
-              variant={"secondary"}
-              type="submit"
-              className="w-full"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                <Loader2 className="animate-spin" />
-              ) : (
-                "Continuar"
-              )}
-            </Button>
+            <div className="flex w-full flex-col gap-4">
+              <Button
+                variant={"secondary"}
+                type="submit"
+                className="w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <Loader2 className="animate-spin" />
+                ) : (
+                  "Continuar"
+                )}
+              </Button>
+              <Button
+                variant={"linkBlue"}
+                size={"sm"}
+                className="text-xs"
+                onClick={onForgotPassword}
+                type="button"
+              >
+                esqueci minha senha
+              </Button>
+            </div>
           </form>
         </Form>
       </CardContent>
