@@ -11,7 +11,7 @@ import ScrollToTopBtn from "@/components/ui/scroll-to-top-btn";
 export default function Page() {
   return (
     <>
-      <main className="flex flex-col items-center justify-center" id="main">
+      <main className="flex flex-col items-center justify-center max-sm:gap-16" id="main">
         <Navigation />
         <Hero />
         <Logos />

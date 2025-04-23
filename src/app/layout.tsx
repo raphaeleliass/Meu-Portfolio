@@ -3,7 +3,7 @@ import "./globals.css";
 import { Inter, Inter_Tight } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import Providers from "@/components/ui/Providers";
-import { Toaster } from "@/components/ui/toaster";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -83,12 +83,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" suppressHydrationWarning>
       <body className={`${inter.variable} ${interTight.variable} antialiased`}>
-        <Providers>
-          {children}
-          <Toaster />
-        </Providers>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          disableTransitionOnChange
+          enableSystem
+        >
+          <Providers>{children}</Providers>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
