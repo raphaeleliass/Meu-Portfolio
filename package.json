@@ -25,6 +25,7 @@
     "@radix-ui/react-tooltip": "^1.1.6",
     "@react-three/drei": "^10.0.5",
     "@react-three/fiber": "^9.1.1",
+    "@tabler/icons-react": "^3.31.0",
     "@tailwindcss/upgrade": "^4.0.12",
     "@types/three": "^0.175.0",
     "@vercel/analytics": "^1.4.1",
